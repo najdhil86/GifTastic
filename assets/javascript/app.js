@@ -1,78 +1,81 @@
-// Initial array of movies
 var animals = ["cats", "dogs", "mice", "lion", "goat", "falcon"];
   
-// Function for displaying movie data
-function makeButtons() {
+function createButtons() {
 
-  // Deleting the movie buttons prior to adding new movie buttons
-  // (this is necessary otherwise we will have repeat buttons)
   $("#buttons-view").empty();
 
-  // Looping through the array of movies
   for (var i = 0; i < animals.length; i++) {
+    
+    var b = $("<button>");
+    // Adding a class
+    b.addClass("animal");
+    // Adding a data-attribute with a value of the movie at index i
+    b.attr("data-name", animals[i]);
 
-    var button = $("<button>");
-
-    button.addClass("animal");
-
-    button.attr("data-name", animals[i]);
-
-    button.attr("id", "animalID");
-
-    button.text(animals[i]);
-
-    $("#buttons-view").append(button);
+    b.attr("id","animal-button")
+    // Providing the button's text with a value of the movie at index i
+    b.text(animals[i]);
+    // Adding the button to the HTML
+    $("#buttons-view").append(b);
   }
 }
 
-$("#add-animal").on("click", function(event) {
+createButtons();
 
-  event.preventDefault();
+$(document).on('click', '#animal-button', function(){
 
-  
-  var animal_value = $("#animal-input").val().trim();
-  
-  animals.push(animal_value);
-
-  makeButtons();
-
-});
-
-makeButtons();
-
-$(document).on('click', 'animalID', function(){
-
-  debugger;
-
-  console.log("hi");
-
-  // var animal_text = $(this).val();
-
-  // console.log(animal_text);
-
-  // var url = "https://api.giphy.com/v1/gifs/search?api_key=M2qGlCIrSZY1ge15FIG17uNEAg9SoxR8&q=" + animal_text + "&limit=25&offset=0&rating=G&lang=en";
-
-  // console.log(url);
-
-  // event.preventDefault();
-
-
-  // $.ajax({
-
-  //   url: url,
-  //   method: "GET"
-  // }).then(function(response) {
-
-
-  //   console.log(response);
+    var animalName = $(this).attr("data-name");
+    // movieName.replace(\ \g, '+');
     
-  //   var img = $('<img>');
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+    animalName + "&api_key=M2qGlCIrSZY1ge15FIG17uNEAg9SoxR8&limit=10";
 
-  //   img.attr('src', response.data[0].images.downsized_large.url)
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).then(function(response){
+      
+      var results = response.data;
 
-  //   $('#animal-giphys').append(img);
-  //   debugger;
-  // });
+      for (var i = 0; i < results.length; i++) {
+
+        if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+          
+          var gifDiv = $("<div>");
+                    
+          var rating = results[i].rating;
+
+          var p = $("<p>").text("Rating: " + rating);
+
+          // Creating an image tag
+          var animalImage = $("<img>");
+
+          // Giving the image tag an src attribute of a proprty pulled off the
+          // result item
+          animalImage.attr("src", results[i].images.fixed_height.url);
+
+          // Appending the paragraph and personImage we created to the "gifDiv" div we created
+          gifDiv.append(p);
+          gifDiv.append(animalImage);
+
+          // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+          $("#animal-giphys").prepend(gifDiv);
+        }
 
 
+      }
+
+    })
+  });
+
+  // This function handles events where one button is clicked
+  $("#add-animal").on("click", function() {
+    var v = $("#movie-input").val();
+
+    movies.push(v);
+    createButton(v);
+    
+    event.preventDefault();
+
+    $("#movie-input").val("");
 })
