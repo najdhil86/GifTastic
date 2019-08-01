@@ -12,6 +12,8 @@ function createButtons() {
     // Adding a data-attribute with a value of the movie at index i
     b.attr("data-name", animals[i]);
 
+    b.attr("class", "btn btn-primary");
+
     b.attr("id","animal-button")
     // Providing the button's text with a value of the movie at index i
     b.text(animals[i]);
@@ -92,13 +94,13 @@ $(document).on('click', '#animal-button', function(){
 
 // This function is control playing the gifs from giphy
 
-$("img").on("click", function() {
+$(document).on("click", "img", function () {
   //selecting data state
 
   var state = $(this).attr("data-state");
 
   if (state === "still") {
-    debugger;
+    
     $(this).attr("src", $(this).attr("data-animate"));
     $(this).attr("data-state", "animate");
   } else {
