@@ -1,69 +1,68 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css?family=Gothic+A1|News+Cycle|Open+Sans|Open+Sans+Condensed:300|Oswald|Pathway+Gothic+One|Raleway&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Gothic+A1|News+Cycle|Open+Sans|Open+Sans+Condensed:300|Oswald|Pathway+Gothic+One|Raleway&display=swap"
+    rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <title>GifTastic</title>
-
-  </head>
-
-  <body>
-
-    <div class="container">
-      
-      
-        <div class="row justify-content-md-center">
-
-            <h1 id="title">GifTastic</h1>
-            
-        </div> 
-      <!-- Movies will get dumped here -->
-      <div class="row justify-content-md-left">
+  <link rel="stylesheet" href="assets/css/style.css">
 
 
-          <div id="buttons-view" class=""></div>
 
-      </div>
-      
-      <div class="row justify-content-lg-right">
+  <title>GifTastic</title>
 
-          <form id="animal-giphy-form">
+</head>
 
-              <label for="animal-input"></label>
-              <input type="text" id="animal-input" placeholder="Search for more Animal gifs.."><br>
-        
-              <!-- Button triggers new movie to be added -->
-              <input id="add-animal" type="submit" value="Submit">
-      
-            </form>
+<body>
 
-      </div>
-      
-      
-          <div class="polaroid">
-            <span id="animal-giphys"></span>
-          </div>
-
-      </div>
-      
+  <div class="container">
 
 
-  
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <div class="row justify-content-md-center">
 
-      <script src="assets/javascript/app.js"></script>
+      <h1 id="title">GifTastic</h1>
+
     </div>
-  </body>
-  
-  </html>
-  
+
+    <!-- This shows buttons underneath the title -->
+
+    <div id="buttons-view" class="row justify-content-md-center"></div>
+
+    <!-- Adding buttons for animals -->
+
+    <form id="animal-giphy-form" class="row justify-content-lg-right">
+
+      <label for="animal-input"></label>
+      <input type="text" id="animal-input" placeholder="Search for more Animal gifs.."><br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-animal" type="submit" value="Submit">
+
+    </form>
+
+
+    <!-- This is where Giphy gifs populate through Javascript -->
+
+    <div id="animal-giphys"></div>
+
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="assets/javascript/app.js"></script>
+  </div>
+</body>
+
+</html>

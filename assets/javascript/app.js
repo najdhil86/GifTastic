@@ -1,4 +1,4 @@
-var animals = ["cats", "dogs", "mice", "lion", "goat", "falcon"];
+var animals = ["cats", "dogs", "mice", "lion", "goat", "falcon","pig","snake","rabbit","lion","bats","rats","mouse"];
   
 function createButtons() {
 
@@ -96,6 +96,8 @@ $(document).on('click', '#animal-button', function(){
 
 $(document).on("click", "img", function () {
   //selecting data state
+
+  console.log("hi");
 
   var state = $(this).attr("data-state");
 
