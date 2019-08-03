@@ -45,6 +45,8 @@ $(document).on('click', '#animal-button', function(){
         if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
           
           var gifDiv = $("<div>");
+
+          gifDiv = gifDiv.attr("class", "col");
                     
           var rating = results[i].rating;
 
@@ -70,8 +72,6 @@ $(document).on('click', '#animal-button', function(){
           // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
           $("#animal-giphys").prepend(gifDiv);
         }
-
-
       }
 
     })
