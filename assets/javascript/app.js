@@ -46,7 +46,7 @@ $(document).on('click', '#animal-button', function(){
           
           var gifDiv = $("<div>");
 
-          gifDiv = gifDiv.attr("class", "col");
+          // gifDiv = gifDiv.attr("class", "col");
                     
           var rating = results[i].rating;
 
